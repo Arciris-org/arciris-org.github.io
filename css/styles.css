@@ -1,0 +1,28 @@
+.glass-card {
+    background: rgba(255,255,255,0.85);
+    border-radius: 2rem;
+    box-shadow: 0 8px 32px 0 rgba(200, 200, 255, 0.10), 0 1.5px 8px 0 rgba(255,255,255,0.18);
+    backdrop-filter: blur(22px) saturate(120%);
+    border: 1.5px solid rgba(255,255,255,0.5);
+}
+
+/* 白系グラデーション */
+.gradient-border {
+    border-image: linear-gradient(90deg, #fff 0%, #f8fafc 50%, #e0e7ef 100%);
+    border-image-slice: 1;
+}
+
+/* 白ベースのボタン */
+.fancy-btn {
+    transition: all 0.2s cubic-bezier(.4,0,.2,1);
+    box-shadow: 0 4px 24px 0 rgba(180, 180, 220, 0.10);
+    backdrop-filter: blur(10px);
+    background: linear-gradient(90deg, #fff 0%, #f8fafc 100%);
+    color: #3b3b4f;
+    border: 1px solid rgba(255,255,255,0.5);
+}
+.fancy-btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, #f8fafc 0%, #e0e7ef 100%);
+    color: #1e293b;
+}
