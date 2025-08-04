@@ -28,7 +28,9 @@
 
         <section class="flex flex-col md:flex-row items-center justify-center flex-1 px-8 py-16 gap-12 bg-gradient-to-br from-white via-white/80 to-blue-50">
             <div class="flex-1 flex flex-col items-start max-w-xl">
-                <h1 class="text-5xl md:text-6xl font-extrabold text-slate-800 mb-6 leading-tight">A Modern, <span class="text-blue-600">Beautiful</span><br>OS for Everyone</h1>
+		<h1 class="text-5xl md:text-6xl font-extrabold text-slate-800 mb-6 leading-tight">
+    			Integrated. Minimal.<br><span class="text-blue-600">Verifiable</span> OS.
+		</h1>
                 <p class="text-lg md:text-xl text-slate-700 mb-8"></p>
                 <div class="flex gap-4">
                     <a href="#download" class="px-8 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition-all duration-200">Download</a>
@@ -38,29 +40,29 @@
             <div class="flex-1 relative h-96 w-full md:w-auto"></div>
         </section>
 
-        <section id="features" class="py-20 bg-white/90">
-            <div class="max-w-5xl mx-auto px-6">
-                <h2 class="text-3xl font-bold text-slate-800 mb-10 text-center">Features</h2>
-                <div class="grid md:grid-cols-3 gap-10">
-                    <div class="bg-white rounded-xl shadow p-8 flex flex-col items-center text-center border border-slate-100">
-                        <h3 class="font-semibold text-lg mb-2">Lightning Fast</h3>
-                        <p class="text-slate-600">Optimized for speed and performance, ArcirisOS loads instantly and runs smoothly on any device.</p>
-                    </div>
-                    <div class="bg-white rounded-xl shadow p-8 flex flex-col items-center text-center border border-slate-100">
-                        <h3 class="font-semibold text-lg mb-2">Beautiful UI</h3>
-                        <p class="text-slate-600">A clean, modern interface with stunning transparency and gradients inspired by the best Linux desktops.</p>
-                    </div>
-                    <div class="bg-white rounded-xl shadow p-8 flex flex-col items-center text-center border border-slate-100">
-                        <h3 class="font-semibold text-lg mb-2">Easy to Use</h3>
-                        <p class="text-slate-600">Intuitive navigation and controls make ArcirisOS accessible for everyone, from beginners to power users.</p>
-                    </div>
-                </div>
+	<section id="features" class="py-20 bg-white/90">
+    <div class="max-w-5xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-slate-800 mb-10 text-center">Features</h2>
+        <div class="grid md:grid-cols-3 gap-10">
+            <div class="bg-white rounded-xl shadow p-8 flex flex-col items-center text-center border border-slate-100">
+                <h3 class="font-semibold text-lg mb-2">Custom Init System</h3>
+                <p class="text-slate-600">ArcirisOS uses its own init sequence built with <code>noa-bootstrap</code>, enabling minimal overhead and precise control over system startup and service management.</p>
             </div>
-        </section>
+            <div class="bg-white rounded-xl shadow p-8 flex flex-col items-center text-center border border-slate-100">
+                <h3 class="font-semibold text-lg mb-2">Asynchronous Package Verification</h3>
+                <p class="text-slate-600">The <code>iris</code> package manager performs non-blocking package integrity checks during startup, ensuring system reliability without slowing down boot time.</p>
+            </div>
+            <div class="bg-white rounded-xl shadow p-8 flex flex-col items-center text-center border border-slate-100">
+                <h3 class="font-semibold text-lg mb-2">Secure by Design</h3>
+                <p class="text-slate-600">ArcirisOS tracks installed files per-package and can detect corruption or tampering in real time. All changes are verifiable, auditable, and reversible.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
         <section id="download" class="py-16 bg-gradient-to-r from-blue-50 via-white to-blue-100 text-center">
             <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-4">Ready to try ArcirisOS?</h2>
-            <a href="#" class="inline-block mt-4 px-10 py-4 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition-all duration-200 text-lg">Download Now</a>
+            <a href="./download.html" class="inline-block mt-4 px-10 py-4 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition-all duration-200 text-lg">Download Now</a>
         </section>
 
         <footer class="w-full text-center py-6 text-slate-500 text-sm bg-white/80 border-t border-slate-200">&copy; 2025 ArcirisOS. All rights reserved.</footer>
