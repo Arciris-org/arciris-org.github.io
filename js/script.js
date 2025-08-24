@@ -1,5 +1,71 @@
-
 document.addEventListener('DOMContentLoaded', function() {
+    window.setLanguage = function(lang) {
+        const jsonFile = lang === 'en' ? 'i18n/template.json' : `i18n/${lang}.json`;
+        fetch(jsonFile)
+            .then(res => res.json())
+            .then(data => {
+                const elements = [
+                    { selector: '#main-nav a', prop: 'textContent', keys: ['features', 'about', 'download'] },
+                    { selector: 'h1', prop: 'innerHTML', key: 'title' },
+                    { selector: 'a[href="#download"]', prop: 'textContent', key: 'download' },
+                    { selector: 'a[href="#features"]', prop: 'textContent', key: 'learn_more' },
+                    { selector: '#features h2', prop: 'textContent', key: 'features' },
+                    { selector: '#download h2', prop: 'textContent', key: 'footer_download' },
+                    { selector: '#download a', prop: 'textContent', key: 'footer_download_btn' }
+                ];
+                elements.forEach(item => {
+                    if (item.keys) {
+                        const nodes = document.querySelectorAll(item.selector);
+                        item.keys.forEach((key, i) => {
+                            if (nodes[i]) nodes[i][item.prop] = data[key];
+                        });
+                    } else {
+                        const el = document.querySelector(item.selector);
+                        if (el && data[item.key]) el[item.prop] = data[item.key];
+                    }
+                });
+
+                // Featuresセクションの各タイトル・説明
+                const features = [
+                    {
+                        title: 'custom_init_system',
+                        desc: 'custom_init_system_desc',
+                        titleSelector: '#features .grid > div:nth-child(1) h3',
+                        descSelector: '#features .grid > div:nth-child(1) p'
+                    },
+                    {
+                        title: 'async_pkg_verfication',
+                        desc: 'async_pkg_verfication_desc',
+                        titleSelector: '#features .grid > div:nth-child(2) h3',
+                        descSelector: '#features .grid > div:nth-child(2) p'
+                    },
+                    {
+                        title: 'secure_by_desgin',
+                        desc: 'secure_by_desgin_desc',
+                        titleSelector: '#features .grid > div:nth-child(3) h3',
+                        descSelector: '#features .grid > div:nth-child(3) p'
+                    }
+                ];
+                features.forEach(f => {
+                    const titleEl = document.querySelector(f.titleSelector);
+                    if (titleEl && data[f.title]) titleEl.textContent = data[f.title];
+                    const descEl = document.querySelector(f.descSelector);
+                    if (descEl && data[f.desc]) descEl.innerHTML = data[f.desc];
+                });
+            });
+    }
+    const menuBtn = document.getElementById('menu-btn');
+    const mainNav = document.getElementById('main-nav');
+    if (menuBtn && mainNav) {
+        menuBtn.addEventListener('click', function() {
+            mainNav.classList.toggle('hidden');
+        });
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 768) {
+                mainNav.classList.add('hidden');
+            }
+        });
+    }
     const bgDiv = document.querySelector('.min-h-screen.bg-gradient-to-br');
     if (bgDiv) {
         let t = 0;
