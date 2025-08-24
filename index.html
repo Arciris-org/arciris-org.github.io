@@ -86,13 +86,43 @@
         </section>
 
         <footer class="w-full text-center py-6 text-slate-500 text-sm bg-white/80 border-t border-slate-200">&copy; 2025 ArcirisOS. All rights reserved.</footer>
-    </div>
-    <script>
-        document.getElementById('lang-switch').addEventListener('change', function(e) {
-            setLanguage(e.target.value);
+</div>
+
+<div id="cookie-popup" style="display:none;"
+    class="fixed bottom-0 left-0 w-full bg-white/95 border-t border-slate-200 shadow-lg py-4 px-6 flex flex-col md:flex-row items-center justify-between z-50">
+    <span class="text-slate-700 text-sm mb-2 md:mb-0">This site uses cookies for language settings. Do you agree?</span>
+    <button id="cookie-accept" class="px-6 py-2 bg-blue-600 text-white rounded-full font-semibold shadow hover:bg-blue-700 transition-all duration-200 text-sm">同意する</button>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const langSwitch = document.getElementById('lang-switch');
+        if (langSwitch && typeof getLangCookie === 'function') {
+            const prevLang = getLangCookie();
+            if (prevLang) {
+                langSwitch.value = prevLang;
+                setLanguage(prevLang);
+            } else {
+                setLanguage(langSwitch.value);
+            }
+            langSwitch.addEventListener('change', function(e) {
+                if (isCookieAgreed() && typeof setLangCookie === 'function') {
+                    setLangCookie(e.target.value);
+                }
+                setLanguage(e.target.value);
+            });
+        }
+        if (!isCookieAgreed()) {
+            showCookiePopup();
+        }
+        document.getElementById('cookie-accept').addEventListener('click', function() {
+            setCookieAgreed();
+            hideCookiePopup();
+            if (langSwitch && typeof setLangCookie === 'function') {
+                setLangCookie(langSwitch.value);
+            }
         });
-    </script>
-</body>
-</html>
+    });
+</script>
 </body>
 </html>
