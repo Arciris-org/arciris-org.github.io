@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 });
 
-                // Featuresセクションの各タイトル・説明
                 const features = [
                     {
                         title: 'custom_init_system',
@@ -52,6 +51,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     const descEl = document.querySelector(f.descSelector);
                     if (descEl && data[f.desc]) descEl.innerHTML = data[f.desc];
                 });
+
+                const downloadPageTitle = document.getElementById('download-page-title');
+                if (downloadPageTitle && data.download_page_title) downloadPageTitle.textContent = data.download_page_title;
+                const downloadPageDesc = document.getElementById('download-page-desc');
+                if (downloadPageDesc && data.download_page_desc) downloadPageDesc.innerHTML = data.download_page_desc.replace(/\n/g, '<br>');
+                const downloadPageGithub = document.getElementById('download-page-github');
+                if (downloadPageGithub && data.download_page_github) downloadPageGithub.textContent = data.download_page_github;
+                const downloadPageFooter = document.getElementById('download-page-footer');
+                if (downloadPageFooter && data.footer_download_txt) downloadPageFooter.textContent = data.footer_download_txt;
             });
     }
     const menuBtn = document.getElementById('menu-btn');
