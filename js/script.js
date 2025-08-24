@@ -73,6 +73,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 mainNav.classList.add('hidden');
             }
         });
+        document.addEventListener('click', function(e) {
+            if (
+                !mainNav.classList.contains('hidden') &&
+                !mainNav.contains(e.target) &&
+                !menuBtn.contains(e.target)
+            ) {
+                mainNav.classList.add('hidden');
+            }
+        });
     }
     const bgDiv = document.querySelector('.min-h-screen.bg-gradient-to-br');
     if (bgDiv) {
