@@ -87,14 +87,19 @@ document.addEventListener('DOMContentLoaded', function() {
     if (bgDiv) {
         let t = 0;
         function animateGradient() {
-            t += 0.025;
-            const color1 = '#fff';
-            const color2 = '#f1f5f9';
-            const color3 = '#c2ceddff';
-            const p1 = 5 + Math.sin(t) * 45;
-            const p2 = 50 + Math.cos(t/2) * 45;
-            const p3 = 100;
-            bgDiv.style.background = `linear-gradient(135deg, ${color1} ${p1}%, ${color2} ${p2}%, ${color3} ${p3}%)`;
+            t += 0.018;
+            const color1 = `rgba(${230 + Math.sin(t)*15},${240 + Math.cos(t)*10},255,1)`;
+            const color2 = `rgba(180,210,255,${0.7 + 0.2*Math.sin(t/2)})`;
+            const color3 = `rgba(120,180,255,${0.5 + 0.3*Math.cos(t/3)})`;
+            const color4 = `rgba(200,255,255,${0.6 + 0.2*Math.sin(t/1.5)})`;
+            const color5 = `rgba(255,255,255,${0.8 + 0.1*Math.cos(t/4)})`;
+            const angle = 120 + Math.sin(t/2)*30;
+            const p1 = 5 + Math.sin(t) * 30;
+            const p2 = 30 + Math.cos(t/2) * 30;
+            const p3 = 60 + Math.sin(t/3) * 30;
+            const p4 = 85 + Math.cos(t/1.5) * 10;
+            const p5 = 100;
+            bgDiv.style.background = `linear-gradient(${angle}deg, ${color1} ${p1}%, ${color2} ${p2}%, ${color3} ${p3}%, ${color4} ${p4}%, ${color5} ${p5}%)`;
             requestAnimationFrame(animateGradient);
         }
         animateGradient();
