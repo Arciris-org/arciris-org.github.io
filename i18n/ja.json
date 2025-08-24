@@ -11,5 +11,10 @@
     "secure_by_desgin": "設計によるセキュリティ",
     "secure_by_desgin_desc": "ArcirisOSはパッケージごとにインストールされたファイルを追跡し、破損や改ざんをリアルタイムで検出できます。すべての変更は検証可能で、監査可能、かつ元に戻すことができます。",
     "footer_download": "ArcirisOSを試してみませんか？",
-    "footer_download_btn": "今すぐダウンロード"
+    "footer_download_btn": "今すぐダウンロード",
+
+    "download_page_title": "ArcirisOSのダウンロード",
+    "download_page_desc": "ArcirisOSの最初のリリースに向けて、現在も開発を進めています。\nその間、GitHubリポジトリで進捗をご覧いただけます。",
+    "download_page_github": "Visit GitHub",
+    "footer_download_txt": "インストーラー、ISO、ドキュメントは近日公開予定です。"
 }
