@@ -113,4 +113,19 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 600);
         });
     }
+    
+    const langSwitch = document.getElementById('lang-switch');
+    if (langSwitch && typeof getLangCookie === 'function') {
+        const prevLang = getLangCookie();
+        if (prevLang) {
+            langSwitch.value = prevLang;
+            setLanguage(prevLang);
+        } else {
+            setLanguage(langSwitch.value);
+        }
+        langSwitch.addEventListener('change', function(e) {
+            if (typeof setLangCookie === 'function') setLangCookie(e.target.value);
+            setLanguage(e.target.value);
+        });
+    }
 });
