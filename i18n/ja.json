@@ -1,0 +1,15 @@
+{
+    "title": "シンプルで <br><span class='text-blue-600'>モダン</span> なOS。",
+    "download": "ダウンロード",
+    "learn_more": "詳細",
+    "features": "特徴",
+    "about": "概要",
+    "custom_init_system": "カスタムInitシステム",
+    "custom_init_system_desc": "ArcirisOSは独自の初期化システムである <code>noa-bootstrap</code> を使用し、最小限のオーバーヘッドとシステム起動・サービス管理の精密な制御を実現します。",
+    "async_pkg_verfication": "非同期パッケージ検証",
+    "async_pkg_verfication_desc": "irisパッケージマネージャは起動時に非同期でパッケージの整合性チェックを行い、システムの信頼性を確保しつつ起動時間を遅くしません。",
+    "secure_by_desgin": "設計によるセキュリティ",
+    "secure_by_desgin_desc": "ArcirisOSはパッケージごとにインストールされたファイルを追跡し、破損や改ざんをリアルタイムで検出できます。すべての変更は検証可能で、監査可能、かつ元に戻すことができます。",
+    "footer_download": "ArcirisOSを試してみませんか？",
+    "footer_download_btn": "今すぐダウンロード"
+}

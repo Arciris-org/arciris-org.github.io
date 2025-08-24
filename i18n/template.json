@@ -1,0 +1,15 @@
+{
+	"title": "A simple <br><span class='text-blue-600'>Modern</span> OS.",
+	"download": "Download",
+	"learn_more": "Learn More",
+	"features": "Features",
+	"about": "About",
+	"custom_init_system": "Custom Init System",
+	"custom_init_system_desc": "ArcirisOS uses its own init sequence built with <code>noa-bootstrap</code>, enabling minimal overhead and precise control over system startup and service management.",
+	"async_pkg_verfication": "Asynchronous Package Verification",
+	"async_pkg_verfication_desc": "The iris package manager performs non-blocking package integrity checks during startup, ensuring system reliability without slowing down boot time.",
+	"secure_by_desgin": "Secure by Design",
+	"secure_by_desgin_desc": "ArcirisOS tracks installed files per-package and can detect corruption or tampering in real time. All changes are verifiable, auditable, and reversible.",
+	"footer_download": "Ready to try ArcirisOS?",
+	"footer_download_btn": "Download Now"
+}
