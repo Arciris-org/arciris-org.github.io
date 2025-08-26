@@ -2,7 +2,12 @@ document.addEventListener('DOMContentLoaded', function() {
     window.setLanguage = function(lang) {
         const jsonFile = lang === 'en' ? 'i18n/template.json' : `i18n/${lang}.json`;
         fetch(jsonFile)
-            .then(res => res.json())
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(`Failed to get laungage file: ${jsonFile}`);
+                }
+                return res.json();
+            })
             .then(data => {
                 const elements = [
                     { selector: '#main-nav a', prop: 'textContent', keys: ['features', 'about', 'download'] },
@@ -11,17 +16,36 @@ document.addEventListener('DOMContentLoaded', function() {
                     { selector: 'a[href="#features"]', prop: 'textContent', key: 'learn_more' },
                     { selector: '#features h2', prop: 'textContent', key: 'features' },
                     { selector: '#download h2', prop: 'textContent', key: 'footer_download' },
-                    { selector: '#download a', prop: 'textContent', key: 'footer_download_btn' }
+                    { selector: '#download a', prop: 'textContent', key: 'footer_download_btn' },
+                    { selector: '#about h2', prop: 'textContent', key: 'about' },
+                    // 1つ目のabout説明文
+                    { selector: '#about p', prop: 'innerHTML', key: 'about_desc' },
+                    { selector: '#about ul', prop: 'innerHTML', keys: ['about_list_1', 'about_list_2', 'about_list_3', 'about_list_4', 'about_list_5'] },
+                    // 2つ目のabout説明文（.mt-6付きpタグ）
+                    { selector: '#about p.mt-6', prop: 'innerHTML', key: 'about_desc_2' }
                 ];
                 elements.forEach(item => {
                     if (item.keys) {
                         const nodes = document.querySelectorAll(item.selector);
-                        item.keys.forEach((key, i) => {
-                            if (nodes[i]) nodes[i][item.prop] = data[key];
-                        });
+                        if (item.selector === '#about ul') {
+                            let html = '';
+                            item.keys.forEach(key => {
+                                if (data[key]) html += `<li>${data[key]}</li>`;
+                            });
+                            if (nodes[0]) nodes[0].innerHTML = html;
+                        } else {
+                            item.keys.forEach((key, i) => {
+                                if (nodes[i] && data[key]) nodes[i][item.prop] = data[key];
+                            });
+                        }
                     } else {
-                        const el = document.querySelector(item.selector);
-                        if (el && data[item.key]) el[item.prop] = data[item.key];
+                        if (item.selector === '#about p.mt-6') {
+                            const el = document.querySelector('#about p.mt-6');
+                            if (el && data[item.key]) el[item.prop] = data[item.key];
+                        } else {
+                            const el = document.querySelector(item.selector);
+                            if (el && data[item.key]) el[item.prop] = data[item.key];
+                        }
                     }
                 });
 
@@ -60,6 +84,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (downloadPageGithub && data.download_page_github) downloadPageGithub.textContent = data.download_page_github;
                 const downloadPageFooter = document.getElementById('download-page-footer');
                 if (downloadPageFooter && data.footer_download_txt) downloadPageFooter.textContent = data.footer_download_txt;
+            })
+            .catch(err => {
+                console.error('setLanguage error:', err);
             });
     }
     const menuBtn = document.getElementById('menu-btn');
