@@ -109,6 +109,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 mainNav.classList.add('hidden');
             }
         });
+            const navLinks = document.querySelectorAll('#main-nav a[href^="#"]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = link.getAttribute('href');
+                    const targetId = href.split('#')[1];
+                    if (targetId) {
+                        const target = document.getElementById(targetId);
+                        if (target) {
+                            e.preventDefault();
+                            target.scrollIntoView({ behavior: 'smooth' });
+                            if (window.innerWidth < 768 && mainNav) {
+                                mainNav.classList.add('hidden');
+                            }
+                        }
+                    }
+                });
+            });
     }
     const bgDiv = document.querySelector('.min-h-screen.bg-gradient-to-br');
     if (bgDiv) {
