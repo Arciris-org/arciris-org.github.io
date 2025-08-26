@@ -2,6 +2,14 @@ body {
     font-family: 'Noto Sans JP', sans-serif;
 }
 
+code {
+    font-family: 'Noto Mono', monospace;
+    border-radius: 0.2em;
+    padding: 0.1em;
+    background-color: #4b4b4b;
+    color: #f8f8f8;
+}
+
 .glass-card {
     background: rgba(255,255,255,0.85);
     border-radius: 2rem;
