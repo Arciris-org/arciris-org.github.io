@@ -1,0 +1,27 @@
+{
+	"title": "一个简单的 <br><span class='text-blue-600'>现代化</span> 操作系统。",
+	"download": "下载",
+	"learn_more": "了解更多",
+	"features": "特性",
+	"about": "关于",
+	"about_desc_1": "ArcirisOS 是一个现代化的开源操作系统，专为简洁、安全和速度而设计。从零开始构建，配备自定义初始化系统和异步包管理，ArcirisOS 为开发者和日常用户提供了流畅的体验。",
+	"about_list_1": "最小资源占用和快速启动时间",
+	"about_list_2": "独特的 <code>noa-bootstrap</code> 初始化系统，实现精确的服务控制",
+	"about_list_3": "使用 <code>iris</code> 进行实时包完整性验证",
+	"about_list_4": "透明、可审计且可逆的系统更改",
+	"about_list_5": "专为可靠性和易用性而设计",
+	"about_desc_2": "无论您是寻求可定制平台的开发者，还是需要安全美观操作系统的用户，ArcirisOS 都旨在为您赋能。",
+	"custom_init_system": "自定义初始化系统",
+	"custom_init_system_desc": "ArcirisOS 使用基于 <code>noa-bootstrap</code> 构建的自有初始化序列，实现最小开销和对系统启动及服务管理的精确控制。",
+	"async_pkg_verfication": "异步包验证",
+	"async_pkg_verfication_desc": "<code>iris</code> 包管理器对包进行完整性检查，确保系统可靠性而不影响启动时间。",
+	"secure_by_desgin": "安全设计",
+	"secure_by_desgin_desc": "ArcirisOS 按包跟踪已安装文件，可以实时检测损坏或篡改。所有更改都是可验证、可审计和可逆的。",
+	"footer_download": "准备试用 ArcirisOS？",
+	"footer_download_btn": "立即下载",
+
+	"download_page_title": "下载 ArcirisOS",
+	"download_page_desc": "我们仍在努力开发 ArcirisOS 的首个版本。\n同时，您可以访问我们的 GitHub 仓库查看开发进度。",
+	"download_page_github": "访问 GitHub",
+	"footer_download_txt": "安装程序、ISO 和文档即将推出。"
+}
