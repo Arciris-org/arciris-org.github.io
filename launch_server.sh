@@ -38,7 +38,7 @@ echo "Enter 'exit' to exit process."
 while true; do
 	read -p "> " val
 
-	case ${val} in
+	case "${val}" in
 		"exit")
 			printf "Killing python process..."
 			kill "$PID"
