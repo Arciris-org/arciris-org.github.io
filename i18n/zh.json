@@ -16,7 +16,7 @@
 	"async_pkg_verfication": "异步包验证",
 	"async_pkg_verfication_desc": "<code>iris</code> 包管理器对包进行完整性检查，确保系统可靠性而不影响启动时间。",
 	"secure_by_desgin": "安全设计",
-	"secure_by_desgin_desc": "ArcirisOS 按包跟踪已安装文件，可以实时检测损坏或篡改。所有更改都是可验证、可审计和可逆的。",
+	"secure_by_desgin_desc": "ArcirisOS 跟踪每个包安装的文件，能够在包操作期间检测意外损坏\n所有更改都是可验证、可审计且可逆的",
 	"footer_download": "准备试用 ArcirisOS？",
 	"footer_download_btn": "立即下载",
 

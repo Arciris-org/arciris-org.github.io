@@ -15,8 +15,8 @@
 	"custom_init_system_desc": "ArcirisOS uses its own init sequence built with <code>noa-bootstrap</code>, enabling minimal overhead and precise control over system startup and service management.",
 	"async_pkg_verfication": "Asynchronous Package Verification",
 	"async_pkg_verfication_desc": "The <code>iris</code> package manager performs integrity checks on packages, ensuring system reliability without slowing down boot times.",
-	"secure_by_desgin": "Secure by Design",
-	"secure_by_desgin_desc": "ArcirisOS tracks installed files per-package and can detect corruption or tampering in real time. All changes are verifiable, auditable, and reversible.",
+	"secure_by_design": "Integrity",
+	"secure_by_design_desc": "ArcirisOS tracks installed files for each package and can detect accidental corruption during package operations\n All changes are verifiable, auditable, and reversible",
 	"footer_download": "Ready to try ArcirisOS?",
 	"footer_download_btn": "Download Now",
 
