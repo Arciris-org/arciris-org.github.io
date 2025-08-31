@@ -23,5 +23,14 @@
 	"download_page_title": "下载 ArcirisOS",
 	"download_page_desc": "我们仍在努力开发 ArcirisOS 的首个版本。\n同时，您可以访问我们的 GitHub 仓库查看开发进度。",
 	"download_page_github": "访问 GitHub",
-	"footer_download_txt": "安装程序、ISO 和文档即将推出。"
+	"footer_download_txt": "安装程序、ISO 和文档即将推出。",
+
+		"contributors_title": "<span class='text-blue-600'>贡献者</span>们",
+		"contributors_desc": "介绍那些通过专注贡献支持 ArcirisOS 的优秀人员。",
+		"contributors_click_desc": "点击上方图片，在 GitHub 上查看详细的贡献统计",
+		"contributors_want_title": "想要贡献吗？",
+		"contributors_want_desc": "ArcirisOS 是一个开源项目，欢迎各种技能水平的开发者贡献。",
+		"contributors_github_btn": "在 GitHub 上查看",
+		"contributors_back_btn": "返回首页",
+		"contributors_nav": "贡献者"
 }

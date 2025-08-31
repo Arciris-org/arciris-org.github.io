@@ -23,5 +23,14 @@
     "download_page_title": "ArcirisOSのダウンロード",
     "download_page_desc": "ArcirisOSの最初のリリースに向けて、現在も開発を進めています。\nその間、GitHubリポジトリで進捗をご覧いただけます。",
     "download_page_github": "Visit GitHub",
-    "footer_download_txt": "インストーラー、ISO、ドキュメントは近日公開予定です。"
+    "footer_download_txt": "インストーラー、ISO、ドキュメントは近日公開予定です。",
+
+    "contributors_title": "<span class='text-blue-600'>貢献者</span>の方々",
+    "contributors_desc": "献身的な貢献によってArcirisOSを支える素晴らしい人々をご紹介します。",
+    "contributors_click_desc": "上の画像をクリックして、GitHubで詳細な貢献統計をご覧ください",
+    "contributors_want_title": "貢献してみませんか？",
+    "contributors_want_desc": "ArcirisOSはオープンソースプロジェクトであり、あらゆるスキルレベルの開発者からの貢献を歓迎しています。",
+    "contributors_github_btn": "GitHubで見る",
+    "contributors_back_btn": "ホームに戻る",
+    "contributors_nav": "貢献者"
 }

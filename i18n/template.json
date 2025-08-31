@@ -23,5 +23,14 @@
 	"download_page_title": "Download ArcirisOS",
 	"download_page_desc": "We're still working hard on the first release of ArcirisOS.\nIn the meantime, you can explore our GitHub repository to see the development progress.",
 	"download_page_github": "Visit GitHub",
-	"footer_download_txt": "Installer, ISO, and documentation will be available soon."
+	"footer_download_txt": "Installer, ISO, and documentation will be available soon.",
+	
+	"contributors_title": "Our <span class='text-blue-600'>Contributors</span>",
+	"contributors_desc": "Meet the amazing people who make ArcirisOS possible through their dedication and contributions.",
+	"contributors_click_desc": "Click the image above to view detailed contribution statistics on GitHub",
+	"contributors_want_title": "Want to contribute?",
+	"contributors_want_desc": "ArcirisOS is an open-source project and we welcome contributions from developers of all skill levels.",
+	"contributors_github_btn": "View on GitHub",
+	"contributors_back_btn": "Back to Home",
+	"contributors_nav": "Contributors"
 }
