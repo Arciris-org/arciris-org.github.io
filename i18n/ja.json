@@ -17,6 +17,7 @@
     "async_pkg_verfication_desc": "<code>iris</code>起動時にパッケージマネージャはパッケージの整合性チェックを行い、システムの信頼性を確保しつつ非同期処理によって起動時間の遅延を最小限にします",
     "secure_by_desgin": "完全性",
     "secure_by_desgin_desc": "ArcirisOSはパッケージごとにインストールされたファイルを追跡し、偶発的な破損をパッケージ操作時に検出できます。すべての変更は検証可能で、監査可能、かつ元に戻すことができます。",
+    "visit_docs": "ドキュメントを見る",
     "footer_download": "ArcirisOSを試してみませんか？",
     "footer_download_btn": "今すぐダウンロード",
 

@@ -17,8 +17,9 @@
 	"async_pkg_verfication_desc": "The <code>iris</code> package manager performs integrity checks on packages, ensuring system reliability without slowing down boot times.",
 	"secure_by_design": "Integrity",
 	"secure_by_design_desc": "ArcirisOS tracks installed files for each package and can detect accidental corruption during package operations\n All changes are verifiable, auditable, and reversible",
+	"visit_docs": "Visit Documentation",
 	"footer_download": "Ready to try ArcirisOS?",
-	"footer_download_btn": "Download Now",
+	"footer_download_btn": "Download Now &rarr;",
 
 	"download_page_title": "Download ArcirisOS",
 	"download_page_desc": "We're still working hard on the first release of ArcirisOS.\nIn the meantime, you can explore our GitHub repository to see the development progress.",

@@ -21,7 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         { selector: '#about h2', prop: 'textContent', key: 'about' },
                         { selector: '#about p', prop: 'innerHTML', key: 'about_desc' },
                         { selector: '#about ul', prop: 'innerHTML', keys: ['about_list_1', 'about_list_2', 'about_list_3', 'about_list_4', 'about_list_5'] },
-                        { selector: '#about p.mt-6', prop: 'innerHTML', key: 'about_desc_2' }
+                        { selector: '#about p.mt-6', prop: 'innerHTML', key: 'about_desc_2' },
+                        { selector: 'a[data-text="visit_docs"]', prop: 'textContent', key: 'visit_docs' }
                     ];
                     
                     elements.forEach(item => {
