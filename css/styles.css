@@ -26,6 +26,7 @@ code {
     color: #3b3b4f;
     border: 1px solid rgba(255,255,255,0.5);
 }
+
 .fancy-btn:hover {
     transform: scale(1.05);
     background: linear-gradient(90deg, #f8fafc 0%, #e0e7ef 100%);
