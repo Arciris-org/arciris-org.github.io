@@ -1,145 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    window.setLanguage = function(lang) {
-        const jsonFile = lang === 'en' ? 'i18n/template.json' : `i18n/${lang}.json`;
-        fetch(jsonFile)
-            .then(res => {
-                if (!res.ok) {
-                    throw new Error(`Failed to get laungage file: ${jsonFile}`);
-                }
-                return res.json();
-            })
-            .then(data => {
-                if (!document.title.includes('Contributors') && !window.location.pathname.includes('contributors')) {
-                    const elements = [
-                        { selector: '#main-nav a', prop: 'textContent', keys: ['features', 'about', 'download', 'contributors_nav'] },
-                        { selector: 'h1', prop: 'innerHTML', key: 'title' },
-                        { selector: 'a[href="#download"]', prop: 'textContent', key: 'download' },
-                        { selector: 'a[href="#features"]', prop: 'textContent', key: 'learn_more' },
-                        { selector: '#features h2', prop: 'textContent', key: 'features' },
-                        { selector: '#download h2', prop: 'textContent', key: 'footer_download' },
-                        { selector: '#download a', prop: 'textContent', key: 'footer_download_btn' },
-                        { selector: '#about h2', prop: 'textContent', key: 'about' },
-                        { selector: '#about p', prop: 'innerHTML', key: 'about_desc' },
-                        { selector: '#about ul', prop: 'innerHTML', keys: ['about_list_1', 'about_list_2', 'about_list_3', 'about_list_4', 'about_list_5'] },
-                        { selector: '#about p.mt-6', prop: 'innerHTML', key: 'about_desc_2' },
-                        { selector: 'a[data-text="visit_docs"]', prop: 'textContent', key: 'visit_docs' }
-                    ];
-                    
-                    elements.forEach(item => {
-                        if (item.keys) {
-                            const nodes = document.querySelectorAll(item.selector);
-                            if (item.selector === '#about ul') {
-                                let html = '';
-                                item.keys.forEach(key => {
-                                    if (data[key]) html += `<li>${data[key]}</li>`;
-                                });
-                                if (nodes[0]) nodes[0].innerHTML = html;
-                            } else {
-                                item.keys.forEach((key, i) => {
-                                    if (nodes[i] && data[key]) nodes[i][item.prop] = data[key];
-                                });
-                            }
-                        } else {
-                            if (item.selector === '#about p.mt-6') {
-                                const el = document.querySelector('#about p.mt-6');
-                                if (el && data[item.key]) el[item.prop] = data[item.key];
-                            } else {
-                                const el = document.querySelector(item.selector);
-                                if (el && data[item.key]) el[item.prop] = data[item.key];
-                            }
-                        }
-                    });
-
-                    const features = [
-                        {
-                            title: 'custom_init_system',
-                            desc: 'custom_init_system_desc',
-                            titleSelector: '#features .grid > div:nth-child(1) h3',
-                            descSelector: '#features .grid > div:nth-child(1) p'
-                        },
-                        {
-                            title: 'async_pkg_verfication',
-                            desc: 'async_pkg_verfication_desc',
-                            titleSelector: '#features .grid > div:nth-child(2) h3',
-                            descSelector: '#features .grid > div:nth-child(2) p'
-                        },
-                        {
-                            title: 'secure_by_desgin',
-                            desc: 'secure_by_desgin_desc',
-                            titleSelector: '#features .grid > div:nth-child(3) h3',
-                            descSelector: '#features .grid > div:nth-child(3) p'
-                        }
-                    ];
-                    features.forEach(f => {
-                        const titleEl = document.querySelector(f.titleSelector);
-                        if (titleEl && data[f.title]) titleEl.textContent = data[f.title];
-                        const descEl = document.querySelector(f.descSelector);
-                        if (descEl && data[f.desc]) descEl.innerHTML = data[f.desc];
-                    });
-
-                    const downloadPageTitle = document.getElementById('download-page-title');
-                    if (downloadPageTitle && data.download_page_title) downloadPageTitle.textContent = data.download_page_title;
-                    const downloadPageDesc = document.getElementById('download-page-desc');
-                    if (downloadPageDesc && data.download_page_desc) downloadPageDesc.innerHTML = data.download_page_desc.replace(/\n/g, '<br>');
-                    const downloadPageGithub = document.getElementById('download-page-github');
-                    if (downloadPageGithub && data.download_page_github) downloadPageGithub.textContent = data.download_page_github;
-                    const downloadPageFooter = document.getElementById('download-page-footer');
-                    if (downloadPageFooter && data.footer_download_txt) downloadPageFooter.textContent = data.footer_download_txt;
-                }
-
-                if (document.title.includes('Contributors') || window.location.pathname.includes('contributors')) {
-                    const contributorsTitle = document.querySelector('section:first-of-type h1');
-                    if (contributorsTitle && data.contributors_title) {
-                        contributorsTitle.innerHTML = data.contributors_title;
-                    }
-                    
-                    const contributorsDesc = document.querySelector('section:first-of-type h1 + p');
-                    if (contributorsDesc && data.contributors_desc) {
-                        contributorsDesc.textContent = data.contributors_desc;
-                    }
-                    
-                    const clickDescElements = document.querySelectorAll('section p.text-slate-600');
-                    clickDescElements.forEach(element => {
-                        if (data.contributors_click_desc) {
-                            element.textContent = data.contributors_click_desc;
-                        }
-                    });
-                    
-                    const contributorsWantTitle = document.querySelector('section:nth-of-type(5) h3');
-                    if (contributorsWantTitle && data.contributors_want_title) {
-                        contributorsWantTitle.textContent = data.contributors_want_title;
-                    }
-                    
-                    const contributorsWantDesc = document.querySelector('section:nth-of-type(5) h3 + p');
-                    if (contributorsWantDesc && data.contributors_want_desc) {
-                        contributorsWantDesc.textContent = data.contributors_want_desc;
-                    }
-                    
-                    const contributorsGithubBtn = document.querySelector('section:nth-of-type(5) a[href*="github.com"]');
-                    if (contributorsGithubBtn && data.contributors_github_btn) {
-                        contributorsGithubBtn.textContent = data.contributors_github_btn;
-                    }
-                    
-                    const contributorsBackBtn = document.querySelector('section:nth-of-type(5) a[href="/"]');
-                    if (contributorsBackBtn && data.contributors_back_btn) {
-                        contributorsBackBtn.textContent = data.contributors_back_btn;
-                    }
-                    
-                    const navLinks = document.querySelectorAll('#main-nav a');
-                    const navKeys = ['features', 'about', 'download', 'contributors_nav'];
-                    navLinks.forEach((link, index) => {
-                        if (index < 4 && data[navKeys[index]] && !link.href.includes('contributors')) {
-                            link.textContent = data[navKeys[index]];
-                        } else if (link.href.includes('contributors') && data.contributors_nav) {
-                            link.textContent = data.contributors_nav;
-                        }
-                    });
-                }
-            })
-            .catch(err => {
-                console.error('setLanguage error:', err);
-            });
-    }
     const menuBtn = document.getElementById('menu-btn');
     const mainNav = document.getElementById('main-nav');
     if (menuBtn && mainNav) {
@@ -160,23 +19,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 mainNav.classList.add('hidden');
             }
         });
-            const navLinks = document.querySelectorAll('#main-nav a[href^="#"]');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    const href = link.getAttribute('href');
-                    const targetId = href.split('#')[1];
-                    if (targetId) {
-                        const target = document.getElementById(targetId);
-                        if (target) {
-                            e.preventDefault();
-                            target.scrollIntoView({ behavior: 'smooth' });
-                            if (window.innerWidth < 768 && mainNav) {
-                                mainNav.classList.add('hidden');
-                            }
+        const navLinks = document.querySelectorAll('#main-nav a[href^="#"]');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = link.getAttribute('href');
+                const targetId = href.split('#')[1];
+                if (targetId) {
+                    const target = document.getElementById(targetId);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth' });
+                        if (window.innerWidth < 768 && mainNav) {
+                            mainNav.classList.add('hidden');
                         }
                     }
-                });
+                }
             });
+        });
     }
     const bgDiv = document.querySelector('.min-h-screen.bg-gradient-to-br');
     if (bgDiv) {
@@ -211,21 +70,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     main.innerHTML = `<div class="flex flex-col items-center justify-center h-96"><h2 class=\"text-4xl font-bold text-blue-700 mb-4\">ようこそArcirisへ</h2><p class=\"text-lg text-blue-900/80\">新しい体験をお楽しみください。</p></div>`;
                 }
             }, 600);
-        });
-    }
-    
-    const langSwitch = document.getElementById('lang-switch');
-    if (langSwitch && typeof getLangCookie === 'function') {
-        const prevLang = getLangCookie();
-        if (prevLang) {
-            langSwitch.value = prevLang;
-            setLanguage(prevLang);
-        } else {
-            setLanguage(langSwitch.value);
-        }
-        langSwitch.addEventListener('change', function(e) {
-            if (typeof setLangCookie === 'function') setLangCookie(e.target.value);
-            setLanguage(e.target.value);
         });
     }
 });
